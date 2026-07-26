@@ -124,7 +124,7 @@ function TextQuestion({
         <h4 className="text-[13px] font-bold uppercase tracking-[0.05em]">{q.label}</h4>
         <span className="mono shrink-0 text-[10.5px] font-medium text-ink-40">{q.max} words max</span>
       </div>
-      <p className="mt-1.5 text-[13px] leading-relaxed text-ink-55">{q.desc}</p>
+      <p className="mt-1.5 font-serif text-[14px] leading-relaxed text-ink-55">{q.desc}</p>
       <textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -251,8 +251,8 @@ export default function Gps() {
         {/* header */}
         <div className="flex flex-wrap items-start justify-between gap-5">
           <div className="max-w-[620px]">
-            <h1 className="text-[44px] font-extrabold leading-none tracking-[-0.04em] sm:text-[56px]">GPS</h1>
-            <p className="mt-3 text-[14px] leading-relaxed text-ink-55">
+            <h1 className="font-serif text-[48px] font-bold leading-none tracking-[-0.01em] sm:text-[60px]">GPS</h1>
+            <p className="mt-3 font-serif text-[15px] leading-relaxed text-ink-55">
               Complete this Stack to activate one of the world&rsquo;s most powerful GPS systems —
               to set direction, navigation, clarity, depth, velocity, grit and staying power for
               your life&rsquo;s most important endeavors.
@@ -294,8 +294,8 @@ export default function Gps() {
 
         {tab !== 'Meta' ? (
           <div className="deboss mt-8 rounded-[18px] px-6 py-10 text-center">
-            <p className="text-[14px] font-semibold">This view is still sealed.</p>
-            <p className="mt-1.5 text-[12.5px] text-ink-55">
+            <p className="font-serif text-[17px] font-semibold">This view is still sealed.</p>
+            <p className="mt-1.5 font-serif text-[14px] text-ink-55">
               Complete the GPS Meta stack — your {tab} signals unlock as cards flip to black.
             </p>
           </div>
@@ -328,7 +328,7 @@ export default function Gps() {
               {/* 00 START HERE */}
               <SectionCard id="start-here" num="00" name="Start Here">
                 <h4 className="text-[13px] font-bold uppercase tracking-[0.05em]">Set your coordinates</h4>
-                <p className="mt-1.5 text-[13px] text-ink-55">
+                <p className="mt-1.5 font-serif text-[14px] text-ink-55">
                   Let&rsquo;s start by setting your coordinates. Select the statement that best
                   describes you.
                 </p>
@@ -399,7 +399,7 @@ export default function Gps() {
                         50 words max each
                       </span>
                     </div>
-                    <p className="mt-1.5 text-[13px] leading-relaxed text-ink-55">
+                    <p className="mt-1.5 font-serif text-[14px] leading-relaxed text-ink-55">
                       Delta means change. Describe your vision of what changes for your Power
                       Customer before vs after your solution.
                     </p>
@@ -464,7 +464,7 @@ export default function Gps() {
                 />
               </SectionCard>
 
-              <p className="pb-2 text-center text-[11.5px] text-ink-40">
+              <p className="pb-2 text-center font-serif text-[13px] italic text-ink-40">
                 Every answered question feeds your GPS score — and flips this stack to black.
               </p>
             </div>

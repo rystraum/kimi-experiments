@@ -189,7 +189,7 @@ export default function OsMap({ phases, activeId, progress, onSelect, onHover }:
         })}
       </svg>
 
-      <p className="hairline-t px-1 pt-3 text-[11px] leading-relaxed text-ink-40">
+      <p className="hairline-t px-1 pt-3 font-serif text-[12px] italic leading-relaxed text-ink-40">
         The map listens to the stack — hover a phase to light its constellation, tap a hub to jump.
       </p>
     </div>
