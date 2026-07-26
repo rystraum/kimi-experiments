@@ -18,7 +18,7 @@ export default function AppSidebar() {
       <div className="flex items-center gap-2.5 px-5 pb-4 pt-5">
         <span
           className="app-icon flex h-[30px] w-[30px] items-center justify-center"
-          style={{ background: 'linear-gradient(160deg, #4d4df0 0%, #1818c4 70%, #0e0e96 100%)' }}
+          style={{ background: 'linear-gradient(160deg, #3a3935 0%, #1a1a18 100%)' }}
         >
           <svg viewBox="0 0 32 32" className="h-[18px] w-[18px]" aria-hidden="true">
             <path d="m9 9 14 14M23 9 9 23" stroke="#fff" strokeWidth="3.4" strokeLinecap="round" />
@@ -50,7 +50,7 @@ export default function AppSidebar() {
             onClick={() => navigate(item.to)}
             className={`flex items-center gap-2.5 rounded-[12px] px-2.5 py-[7px] text-left text-[13px] transition-colors ${
               item.active
-                ? 'bg-[hsl(var(--blue))] font-semibold text-white shadow-[0_4px_12px_-4px_hsl(var(--blue)/0.7)]'
+                ? 'bg-white/10 font-semibold text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12)]'
                 : 'font-medium text-white/60 hover:bg-white/5 hover:text-white'
             }`}
           >
@@ -67,10 +67,7 @@ export default function AppSidebar() {
       {/* secondary */}
       <nav className="flex flex-col gap-0.5 px-3">
         <button className="flex items-center gap-2.5 rounded-[12px] px-2.5 py-[7px] text-left text-[13px] font-semibold text-white/85 transition-colors hover:bg-white/5">
-          <span
-            className="app-icon flex h-[22px] w-[22px] items-center justify-center text-[11px] font-extrabold text-white"
-            style={{ background: 'linear-gradient(160deg, #f6a44a, #e0730f)' }}
-          >
+          <span className="flex h-[22px] w-[22px] items-center justify-center rounded-[27%] bg-white/10 text-[11px] font-bold text-white/85">
             Y
           </span>
           Yodaman!
@@ -105,7 +102,7 @@ export default function AppSidebar() {
 
         <div className="group relative mt-1">
           <button className="flex w-full items-center gap-2.5 rounded-[12px] bg-white/5 px-2.5 py-2 text-left transition-colors hover:bg-white/10">
-            <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-[hsl(var(--blue))] text-[11px] font-bold text-white">
+            <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-white/15 text-[11px] font-bold text-white">
               F
             </span>
             <span className="truncate text-[12px] font-medium text-white/75">fellow@100xvc.io</span>

@@ -35,7 +35,7 @@ export default function PowerCard({ card, flipped, onFlip }: Props) {
               </span>
             )}
             {opens ? (
-              <span className="emboss-plate mt-0.5 flex h-[24px] w-[24px] items-center justify-center rounded-full text-ink-55 transition-all duration-200 group-hover:bg-[hsl(var(--blue))] group-hover:text-white">
+              <span className="emboss-plate mt-0.5 flex h-[24px] w-[24px] items-center justify-center rounded-full text-ink-55 transition-all duration-200 group-hover:bg-[hsl(var(--ink))] group-hover:text-white">
                 <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M2.5 9.5 9.5 2.5M4.5 2.5h5v5" />
                 </svg>
@@ -77,7 +77,7 @@ export default function PowerCard({ card, flipped, onFlip }: Props) {
             <span className="mono text-[10px] font-medium uppercase tracking-[0.1em] text-ink-40">
               {card.code} · white
             </span>
-            <span className="text-[10.5px] font-semibold text-[hsl(var(--blue))]">
+            <span className="text-[10.5px] font-semibold text-[hsl(var(--ink))]">
               {opens ? 'Open card →' : 'Flip to black →'}
             </span>
           </div>
@@ -90,7 +90,7 @@ export default function PowerCard({ card, flipped, onFlip }: Props) {
             <span className="mono flex h-9 min-w-9 items-center justify-center rounded-[11px] bg-white/10 px-1.5 text-[12.5px] font-semibold text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
               {card.code}
             </span>
-            <span className="flex h-[26px] w-[26px] items-center justify-center rounded-full bg-white text-[hsl(var(--ink))]">
+            <span className="flex h-[26px] w-[26px] items-center justify-center rounded-full bg-[hsl(var(--green))] text-white">
               <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="m2.5 6.2 2.4 2.4 4.6-5" />
               </svg>

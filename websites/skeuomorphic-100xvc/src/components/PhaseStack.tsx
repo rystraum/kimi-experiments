@@ -39,9 +39,9 @@ const PhaseCard = forwardRef<HTMLDivElement, Props>(function PhaseCard(
 
       <div
         className={`mat-card relative rounded-[22px] transition-shadow duration-300 ${
-          highlighted ? 'ring-2 ring-[hsl(var(--blue)/0.45)]' : ''
+          highlighted ? 'ring-2 ring-[hsl(var(--ink)/0.3)]' : ''
         }`}
-        style={highlighted ? { boxShadow: '0 1px 2px hsl(var(--ink)/0.04), 0 16px 36px -16px hsl(var(--blue)/0.3)' } : undefined}
+        style={highlighted ? { boxShadow: '0 1px 2px hsl(var(--ink)/0.04), 0 16px 36px -16px hsl(var(--ink)/0.22)' } : undefined}
       >
         {/* ——— phase header ——— */}
         <button
@@ -56,10 +56,10 @@ const PhaseCard = forwardRef<HTMLDivElement, Props>(function PhaseCard(
           <span
             className={`mono flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[15px] font-semibold transition-all duration-300 ${
               highlighted || expanded
-                ? 'text-white shadow-[0_4px_10px_-4px_hsl(var(--blue)/0.55)]'
+                ? 'text-white shadow-[0_4px_10px_-4px_hsl(var(--ink)/0.5)]'
                 : 'deboss text-ink-70'
             }`}
-            style={highlighted || expanded ? { background: 'hsl(var(--blue))' } : undefined}
+            style={highlighted || expanded ? { background: 'hsl(var(--ink))' } : undefined}
           >
             {phase.num}
           </span>
@@ -77,7 +77,7 @@ const PhaseCard = forwardRef<HTMLDivElement, Props>(function PhaseCard(
               <span className="deboss h-[10px] w-[104px] overflow-hidden rounded-full">
                 <motion.span
                   className="block h-full rounded-full"
-                  style={{ background: 'hsl(var(--blue))' }}
+                  style={{ background: 'hsl(var(--green))' }}
                   initial={false}
                   animate={{ width: `${Math.max(pct, 2.5)}%` }}
                   transition={{ type: 'spring', stiffness: 160, damping: 24 }}

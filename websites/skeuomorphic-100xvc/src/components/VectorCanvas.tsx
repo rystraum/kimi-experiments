@@ -109,7 +109,7 @@ export default function VectorCanvas({ className }: { className?: string }) {
           const d2 = dx * dx + dy * dy;
           if (d2 < LINK * LINK) {
             const k = 1 - Math.sqrt(d2) / LINK;
-            ctx.strokeStyle = `rgba(41, 36, 86, ${(k * 0.16).toFixed(3)})`;
+            ctx.strokeStyle = `rgba(35, 34, 31, ${(k * 0.15).toFixed(3)})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -122,7 +122,7 @@ export default function VectorCanvas({ className }: { className?: string }) {
       // nodes (twinkle)
       for (const p of pts) {
         const pulse = 0.55 + 0.45 * Math.sin(t * 1.4 + p.tw);
-        ctx.fillStyle = `rgba(24, 24, 196, ${(0.1 + 0.22 * pulse).toFixed(3)})`;
+        ctx.fillStyle = `rgba(35, 34, 31, ${(0.1 + 0.2 * pulse).toFixed(3)})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r * (0.85 + 0.3 * pulse), 0, Math.PI * 2);
         ctx.fill();

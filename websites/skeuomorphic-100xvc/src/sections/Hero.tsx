@@ -19,10 +19,10 @@ export default function Hero() {
       <VectorCanvas className="absolute inset-0 h-full w-full" />
 
       <div className="relative mx-auto max-w-[1200px] px-5 pb-16 pt-16 text-center sm:px-8 sm:pb-20 sm:pt-24">
-        <p className="eyebrow">The world&rsquo;s skilling · credentialing · on-the-job OS</p>
+        <p className="eyebrow">The Operating System for Meta Builders</p>
 
         <h1 className="mx-auto mt-5 text-[64px] font-extrabold leading-[0.95] tracking-[-0.045em] sm:text-[104px]">
-          100X&nbsp;<span className="text-[hsl(var(--blue))]">OS</span>
+          100X&nbsp;<span className="font-semibold text-ink-55">OS</span>
         </h1>
 
         <div className="mt-7 flex justify-center">

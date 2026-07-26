@@ -56,8 +56,8 @@ export default function OsMap({ phases, activeId, progress, onSelect, onHover }:
         <span className="eyebrow">OS Map</span>
         <span className="flex items-center gap-1.5 text-[11px] font-medium text-ink-55">
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[hsl(var(--blue))] opacity-40" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-[hsl(var(--blue))]" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[hsl(var(--green))] opacity-40" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[hsl(var(--green))]" />
           </span>
           Live
         </span>
@@ -70,22 +70,22 @@ export default function OsMap({ phases, activeId, progress, onSelect, onHover }:
             <feOffset dx="0" dy="1.5" />
             <feGaussianBlur stdDeviation="1.5" result="offset-blur" />
             <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
-            <feFlood floodColor="#292456" floodOpacity="0.14" result="color" />
+            <feFlood floodColor="#23221f" floodOpacity="0.14" result="color" />
             <feComposite operator="in" in="color" in2="inverse" result="shadow" />
             <feComposite operator="over" in="shadow" in2="SourceGraphic" />
           </filter>
           <radialGradient id="disc-paper" cx="38%" cy="30%" r="80%">
             <stop offset="0%" stopColor="#ffffff" />
-            <stop offset="100%" stopColor="#f1f2ec" />
+            <stop offset="100%" stopColor="#f2f1ec" />
           </radialGradient>
-          <radialGradient id="hub-blue" cx="35%" cy="25%" r="85%">
-            <stop offset="0%" stopColor="#3f3fe8" />
-            <stop offset="100%" stopColor="#1818c4" />
+          <radialGradient id="hub-ink" cx="35%" cy="25%" r="85%">
+            <stop offset="0%" stopColor="#3c3b37" />
+            <stop offset="100%" stopColor="#191917" />
           </radialGradient>
         </defs>
 
         {/* spine */}
-        <path d={spine} fill="none" stroke="hsl(248 42% 25% / 0.14)" strokeWidth="1.5" strokeDasharray="1 7" strokeLinecap="round" />
+        <path d={spine} fill="none" stroke="hsl(50 4% 13% / 0.14)" strokeWidth="1.5" strokeDasharray="1 7" strokeLinecap="round" />
 
         {model.map((m) => {
           const active = activeId === m.id;
@@ -104,7 +104,7 @@ export default function OsMap({ phases, activeId, progress, onSelect, onHover }:
                 <g key={k}>
                   <line
                     x1={m.cx} y1={m.cy} x2={s.x} y2={s.y}
-                    stroke={active ? 'hsl(240 79% 43% / 0.55)' : 'hsl(248 42% 25% / 0.12)'}
+                    stroke={active ? 'hsl(50 4% 13% / 0.55)' : 'hsl(50 4% 13% / 0.12)'}
                     strokeWidth={active ? 1.4 : 1}
                     strokeDasharray={active ? '4 5' : undefined}
                     className={active ? 'dash-flow' : undefined}
@@ -113,18 +113,18 @@ export default function OsMap({ phases, activeId, progress, onSelect, onHover }:
                   <circle
                     cx={s.x} cy={s.y}
                     r={active ? 3.4 : 2.6}
-                    fill={active ? 'hsl(240 79% 43%)' : 'hsl(248 42% 25% / 0.3)'}
+                    fill={active ? 'hsl(50 4% 13%)' : 'hsl(50 4% 13% / 0.3)'}
                     style={{ transition: 'all .3s' }}
                   />
                 </g>
               ))}
 
               {/* progress ring */}
-              <circle cx={m.cx} cy={m.cy} r="31" fill="none" stroke="hsl(248 42% 25% / 0.1)" strokeWidth="3" />
+              <circle cx={m.cx} cy={m.cy} r="31" fill="none" stroke="hsl(50 4% 13% / 0.1)" strokeWidth="3" />
               {pct > 0 && (
                 <circle
                   cx={m.cx} cy={m.cy} r="31" fill="none"
-                  stroke="hsl(240 79% 43%)" strokeWidth="3" strokeLinecap="round"
+                  stroke="hsl(158 40% 32%)" strokeWidth="3" strokeLinecap="round"
                   pathLength={100}
                   strokeDasharray={`${pct} 100`}
                   transform={`rotate(-90 ${m.cx} ${m.cy})`}
@@ -132,12 +132,12 @@ export default function OsMap({ phases, activeId, progress, onSelect, onHover }:
                 />
               )}
               {m.locked && (
-                <circle cx={m.cx} cy={m.cy} r="31" fill="none" stroke="hsl(248 42% 25% / 0.25)" strokeWidth="1.5" strokeDasharray="3 5" />
+                <circle cx={m.cx} cy={m.cy} r="31" fill="none" stroke="hsl(50 4% 13% / 0.25)" strokeWidth="1.5" strokeDasharray="3 5" />
               )}
 
               {/* pulse halo on active */}
               {active && (
-                <circle cx={m.cx} cy={m.cy} r="26" fill="none" stroke="hsl(240 79% 43% / 0.5)" strokeWidth="1.5">
+                <circle cx={m.cx} cy={m.cy} r="26" fill="none" stroke="hsl(50 4% 13% / 0.4)" strokeWidth="1.5">
                   <animate attributeName="r" values="26;44" dur="1.6s" repeatCount="indefinite" />
                   <animate attributeName="stroke-opacity" values="0.5;0" dur="1.6s" repeatCount="indefinite" />
                 </circle>
@@ -146,9 +146,9 @@ export default function OsMap({ phases, activeId, progress, onSelect, onHover }:
               {/* hub disc */}
               <circle
                 cx={m.cx} cy={m.cy} r="24"
-                fill={active ? 'url(#hub-blue)' : 'url(#disc-paper)'}
+                fill={active ? 'url(#hub-ink)' : 'url(#disc-paper)'}
                 filter={active ? undefined : 'url(#disc-inset)'}
-                stroke={active ? 'rgba(255,255,255,0.35)' : 'hsl(248 42% 25% / 0.1)'}
+                stroke={active ? 'rgba(255,255,255,0.35)' : 'hsl(50 4% 13% / 0.1)'}
                 strokeWidth="1"
                 style={{ transition: 'fill .3s' }}
               />
@@ -157,7 +157,7 @@ export default function OsMap({ phases, activeId, progress, onSelect, onHover }:
                 textAnchor="middle"
                 className="mono"
                 fontSize="13" fontWeight="600"
-                fill={active ? '#ffffff' : 'hsl(248 42% 25% / 0.75)'}
+                fill={active ? '#ffffff' : 'hsl(50 4% 13% / 0.75)'}
               >
                 {m.num}
               </text>
@@ -169,7 +169,7 @@ export default function OsMap({ phases, activeId, progress, onSelect, onHover }:
                 textAnchor={left ? 'end' : 'start'}
                 fontSize="12.5" fontWeight="600"
                 letterSpacing="-0.01em"
-                fill={active ? 'hsl(240 79% 43%)' : 'hsl(248 42% 25% / 0.85)'}
+                fill={active ? 'hsl(50 4% 13%)' : 'hsl(50 4% 13% / 0.85)'}
                 style={{ transition: 'fill .3s' }}
               >
                 {m.name}
@@ -179,7 +179,7 @@ export default function OsMap({ phases, activeId, progress, onSelect, onHover }:
                 y={m.cy + 14}
                 textAnchor={left ? 'end' : 'start'}
                 fontSize="10.5" fontWeight="500"
-                fill="hsl(248 42% 25% / 0.45)"
+                fill="hsl(50 4% 13% / 0.45)"
                 className="tnum"
               >
                 {m.locked ? 'Coming soon' : `${m.count} card${m.count === 1 ? '' : 's'} · ${pct}%`}

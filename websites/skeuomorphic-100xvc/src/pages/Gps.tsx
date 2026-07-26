@@ -129,7 +129,7 @@ function TextQuestion({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         rows={3}
-        className="mt-3 w-full resize-y rounded-[14px] border border-[hsl(var(--ink)/0.1)] bg-white px-4 py-3 text-[13.5px] leading-relaxed text-[hsl(var(--ink))] outline-none transition-shadow placeholder:text-ink-40 focus:border-[hsl(var(--blue)/0.5)] focus:ring-4 focus:ring-[hsl(var(--blue)/0.12)]"
+        className="mt-3 w-full resize-y rounded-[14px] border border-[hsl(var(--ink)/0.1)] bg-white px-4 py-3 text-[13.5px] leading-relaxed text-[hsl(var(--ink))] outline-none transition-shadow placeholder:text-ink-40 focus:border-[hsl(var(--ink)/0.4)] focus:ring-4 focus:ring-[hsl(var(--ink)/0.1)]"
         placeholder="Write here…"
       />
       <div className="mono mt-1.5 text-[10.5px] font-medium text-ink-40">{words(value)} words</div>
@@ -160,7 +160,7 @@ function SectionFooter({
             className="block h-full rounded-full transition-all duration-500"
             style={{
               width: `${Math.max(pct, answered > 0 ? 3 : 0)}%`,
-              background: submitted ? 'hsl(var(--green))' : 'hsl(var(--blue))',
+              background: 'hsl(var(--green))',
             }}
           />
         </span>
@@ -244,7 +244,7 @@ export default function Gps() {
 
       <main className="mx-auto max-w-[1160px] px-5 pb-24 pt-10 sm:px-8 md:pl-[260px] md:pr-8">
         {/* mobile home link (sidebar hidden) */}
-        <Link to="/" className="mb-6 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[hsl(var(--blue))] md:hidden">
+        <Link to="/" className="mb-6 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[hsl(var(--ink))] md:hidden">
           ← 100X OS Home
         </Link>
 
@@ -281,12 +281,12 @@ export default function Gps() {
               key={t}
               onClick={() => setTab(t)}
               className={`relative whitespace-nowrap px-4 py-2.5 text-[13px] font-semibold transition-colors ${
-                tab === t ? 'text-[hsl(var(--blue))]' : 'text-ink-55 hover:text-[hsl(var(--ink))]'
+                tab === t ? 'text-[hsl(var(--ink))]' : 'text-ink-55 hover:text-[hsl(var(--ink))]'
               }`}
             >
               {t}
               {tab === t && (
-                <span className="absolute inset-x-3 -bottom-px h-[2.5px] rounded-full bg-[hsl(var(--blue))]" />
+                <span className="absolute inset-x-3 -bottom-px h-[2.5px] rounded-full bg-[hsl(var(--ink))]" />
               )}
             </button>
           ))}
@@ -310,7 +310,7 @@ export default function Gps() {
                     href={`#${a.id}`}
                     className={`flex items-center gap-2.5 rounded-[10px] px-2.5 py-2 text-[12.5px] transition-colors ${
                       activeAnchor === a.id
-                        ? 'bg-[hsl(var(--tint))] font-semibold text-[hsl(var(--blue))]'
+                        ? 'bg-[hsl(var(--tint))] font-semibold text-[hsl(var(--ink))]'
                         : 'font-medium text-ink-55 hover:text-[hsl(var(--ink))]'
                     }`}
                   >
@@ -341,7 +341,7 @@ export default function Gps() {
                         onClick={() => setCoord(i)}
                         className={`flex w-full items-center gap-3 rounded-[14px] border px-4 py-3 text-left text-[13.5px] transition-all ${
                           selected
-                            ? 'border-[hsl(var(--blue)/0.45)] bg-[hsl(var(--tint)/0.6)] font-medium'
+                            ? 'border-[hsl(var(--ink)/0.4)] bg-[hsl(var(--tint)/0.6)] font-medium'
                             : 'border-[hsl(var(--ink)/0.08)] bg-white hover:border-[hsl(var(--ink)/0.18)]'
                         }`}
                         role="radio"
@@ -349,7 +349,7 @@ export default function Gps() {
                       >
                         <span
                           className={`flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full transition-all ${
-                            selected ? 'bg-[hsl(var(--blue))] shadow-[0_2px_6px_-2px_hsl(var(--blue)/0.7)]' : 'deboss'
+                            selected ? 'bg-[hsl(var(--ink))] shadow-[0_2px_6px_-2px_hsl(var(--ink)/0.6)]' : 'deboss'
                           }`}
                         >
                           {selected && <span className="h-[7px] w-[7px] rounded-full bg-white" />}
@@ -419,18 +419,18 @@ export default function Gps() {
                           {words(deltaBefore)} words
                         </div>
                       </div>
-                      <div className="rounded-[16px] border border-[hsl(150_40%_86%)] bg-[hsl(148_45%_96.5%)] p-4">
-                        <span className="text-[11.5px] font-bold uppercase tracking-[0.06em] text-[hsl(152_55%_30%)]">
+                      <div className="rounded-[16px] border border-[hsl(158_32%_86%)] bg-[hsl(150_25%_96.5%)] p-4">
+                        <span className="text-[11.5px] font-bold uppercase tracking-[0.06em] text-[hsl(158_40%_28%)]">
                           After (To)
                         </span>
                         <textarea
                           value={deltaAfter}
                           onChange={(e) => setDeltaAfter(e.target.value)}
                           rows={4}
-                          className="mt-2 w-full resize-y rounded-[10px] border border-[hsl(150_35%_85%)] bg-white/80 px-3 py-2.5 text-[13px] leading-relaxed outline-none transition-shadow focus:border-[hsl(152_50%_40%)] focus:ring-4 focus:ring-[hsl(150_50%_40%/0.1)]"
+                          className="mt-2 w-full resize-y rounded-[10px] border border-[hsl(158_28%_85%)] bg-white/80 px-3 py-2.5 text-[13px] leading-relaxed outline-none transition-shadow focus:border-[hsl(158_40%_36%)] focus:ring-4 focus:ring-[hsl(158_40%_32%/0.12)]"
                           placeholder="The 10X change…"
                         />
-                        <div className="mono mt-1.5 text-[10.5px] font-medium text-[hsl(150_30%_45%)]">
+                        <div className="mono mt-1.5 text-[10.5px] font-medium text-[hsl(158_20%_42%)]">
                           {words(deltaAfter)} words
                         </div>
                       </div>
