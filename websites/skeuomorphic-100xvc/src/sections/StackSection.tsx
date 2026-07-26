@@ -21,10 +21,10 @@ export default function StackSection(p: Props) {
     <section className="relative mx-auto max-w-[1200px] px-5 pb-24 sm:px-8">
       <div className="max-w-[640px]">
         <p className="eyebrow">One OS · five phases</p>
-        <h2 className="mt-3 text-[34px] font-extrabold leading-[1.05] tracking-[-0.035em] sm:text-[44px]">
+        <h2 className="mt-3 font-serif text-[36px] font-bold leading-[1.05] tracking-[-0.01em] sm:text-[46px]">
           The stack, dealt face-up.
         </h2>
-        <p className="mt-3 text-[15px] leading-relaxed text-ink-55">
+        <p className="mt-3 font-serif text-[16px] leading-relaxed text-ink-55">
           Every card starts white. Ship the work, flip it to black — the phase meter fills,
           the constellation lights, and the credential compounds. This homepage is the interface:
           try it below.

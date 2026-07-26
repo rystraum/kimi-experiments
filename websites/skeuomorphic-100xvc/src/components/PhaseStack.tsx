@@ -65,10 +65,10 @@ const PhaseCard = forwardRef<HTMLDivElement, Props>(function PhaseCard(
           </span>
 
           <span className="min-w-0 flex-1">
-            <span className="block truncate text-[16.5px] font-semibold tracking-[-0.02em] sm:text-[18px]">
+            <span className="block truncate font-serif text-[18px] font-semibold tracking-[-0.005em] sm:text-[19.5px]">
               {phase.name}
             </span>
-            <span className="mt-0.5 block truncate text-[12.5px] text-ink-55">{phase.caption}</span>
+            <span className="mt-0.5 block truncate font-serif text-[13.5px] text-ink-55">{phase.caption}</span>
           </span>
 
           {/* progress */}
@@ -126,7 +126,7 @@ const PhaseCard = forwardRef<HTMLDivElement, Props>(function PhaseCard(
                         <span className="emboss-plate mono rounded-md px-1.5 py-0.5 text-[10.5px] font-semibold text-ink-70">
                           {g.code}
                         </span>
-                        <h3 className="text-[13.5px] font-semibold tracking-[-0.01em]">{g.name}</h3>
+                        <h3 className="font-serif text-[15px] font-semibold tracking-[0]">{g.name}</h3>
                         {g.note && <span className="text-[11.5px] text-ink-40">{g.note}</span>}
                       </div>
                     )}
@@ -159,7 +159,7 @@ const PhaseCard = forwardRef<HTMLDivElement, Props>(function PhaseCard(
                   </div>
                 ))}
 
-                <p className="flex items-center gap-2 text-[11px] text-ink-40">
+                <p className="flex items-center gap-2 font-serif text-[12.5px] italic text-ink-40">
                   <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <circle cx="6" cy="6" r="5" />
                     <path d="M6 3.5v3l2 1.4" strokeLinecap="round" />
@@ -175,7 +175,7 @@ const PhaseCard = forwardRef<HTMLDivElement, Props>(function PhaseCard(
         {locked && (
           <div className="px-5 pb-5 sm:px-6">
             <div className="deboss flex items-center justify-between gap-4 rounded-[16px] px-5 py-4">
-              <p className="text-[12.5px] leading-relaxed text-ink-55">
+              <p className="font-serif text-[13.5px] leading-relaxed text-ink-55">
                 The OS keeps working after the match — rituals, reviews and revenue on the job.
                 Sealed until the stack above is in the black.
               </p>

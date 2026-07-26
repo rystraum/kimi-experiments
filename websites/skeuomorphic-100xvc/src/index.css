@@ -67,6 +67,11 @@
   ::selection {
     background: hsl(var(--ink) / 0.14);
   }
+  /* serif voice layer — Newsreader carries headings & prose with optical sizing */
+  .font-serif {
+    font-optical-sizing: auto;
+    font-feature-settings: "kern", "liga";
+  }
   .tnum {
     font-variant-numeric: tabular-nums;
   }

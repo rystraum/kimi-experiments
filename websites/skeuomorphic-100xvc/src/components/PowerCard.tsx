@@ -55,7 +55,7 @@ export default function PowerCard({ card, flipped, onFlip }: Props) {
 
           <div className="mt-3 flex-1">
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-              <h4 className="text-[14.5px] font-semibold leading-snug tracking-[-0.015em]">
+              <h4 className="font-serif text-[16px] font-semibold leading-snug tracking-[0]">
                 {card.name}
               </h4>
               {card.tag && (
@@ -70,7 +70,7 @@ export default function PowerCard({ card, flipped, onFlip }: Props) {
                 </span>
               )}
             </div>
-            <p className="mt-1.5 text-[12.5px] leading-relaxed text-ink-55">{card.desc}</p>
+            <p className="mt-1.5 font-serif text-[13.5px] leading-relaxed text-ink-55">{card.desc}</p>
           </div>
 
           <div className="hairline-t mt-3 flex items-center justify-between pt-2.5">
@@ -97,10 +97,10 @@ export default function PowerCard({ card, flipped, onFlip }: Props) {
             </span>
           </div>
           <div className="mt-3 flex-1">
-            <h4 className="text-[14.5px] font-semibold leading-snug tracking-[-0.015em] text-white/95">
+            <h4 className="font-serif text-[16px] font-semibold leading-snug tracking-[0] text-white/95">
               {card.name}
             </h4>
-            <p className="mt-1.5 text-[12.5px] leading-relaxed text-white/55">
+            <p className="mt-1.5 font-serif text-[13.5px] italic leading-relaxed text-white/55">
               In the black. This signal now counts toward your credential, your badges — and the unlock.
             </p>
           </div>
