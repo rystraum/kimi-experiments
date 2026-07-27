@@ -1,22 +1,12 @@
+import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 
-/* ——— thin geometric glyphs, ink, 1.5 stroke ——— */
+/* ——— thin geometric glyphs, ink ——— */
 const PATHS: Record<string, string> = {
   home: 'm2.5 7 5.5-4.5L13.5 7M4 6.5V13a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V6.5',
   stacks: 'M2.5 4.5h11M2.5 8h11M2.5 11.5h11',
-  cycles: 'M13 5.5A5.5 5.5 0 1 0 13.8 8M13 2.5v3h3',
-  workspace: 'M2.5 2.5h4.6v4.6H2.5zM8.9 2.5h4.6v4.6H8.9zM2.5 8.9h4.6v4.6H2.5zM8.9 8.9h4.6v4.6H8.9z',
-  coach: 'M8 2.5 9.6 6l3.7.4-2.8 2.5.8 3.6L8 10.6l-3.3 1.9.8-3.6-2.8-2.5L6.4 6z',
-  library: 'M8 5.5C6.5 4.3 4.6 4 3 4.4v8c1.6-.4 3.5-.1 5 1.1 1.5-1.2 3.4-1.5 5-1.1v-8c-1.6-.4-3.5-.1-5 1.1zm0 0v8',
-  credential: 'M8 2.5 10 5l2.9.6-2 2.1.3 2.9L8 9.2l-2.7 1.4.3-2.9-2-2.1L6 5zM5 11.5v2M11 11.5v2',
-  eval: 'M3 8.5h3l1.8-4 2.4 7 1.8-3H13.5',
-  scorecard: 'M3 13.5V9M6.5 13.5V5.5M10 13.5V8M13.5 13.5V3',
-  network: 'M5 5a2 2 0 1 0 0-.01M11 4.5a2 2 0 1 0 0-.01M8 11.5a2 2 0 1 0 0-.01M6.6 5.6l2.8-.7M6.2 6.8l1.2 2.7M10.3 6.3l-1.4 3',
-  intro: 'M3 5.5h10M3 8h7M3 10.5h8.5M11 12l2 1.5-2 1.5',
-  opportunity: 'M8 2.5v2M8 11.5v2M2.5 8h2M11.5 8h2M5 5l1.4 1.4M9.6 9.6 11 11M11 5 9.6 6.4M6.4 9.6 5 11',
-  value: 'M3 6.5 8 3l5 3.5v5L8 13l-5-1.5zM8 3v10',
-  deals: 'M5.5 8 8 10.5 13 5.5M3 3h10v10H3z',
-  analytics: 'M3 13.5h11M4.5 10.5l2.5-3 2 1.5 3-4.5',
+  layers: 'm8 2.5 5.5 2.6L8 7.7 2.5 5.1zM2.5 8.2 8 10.8l5.5-2.6M2.5 11.3 8 13.9l5.5-2.6',
+  zero: 'M8 8m-5 0a5 5 0 1 0 10 0 5 5 0 1 0-10 0M5.5 8h5',
   powwow: 'M2.5 3h11v7h-6l-3 2.5v-2.5h-2z',
   p2p: 'M5 6a2.2 2.2 0 1 0 0-.01M11 6a2.2 2.2 0 1 0 0-.01M2.5 13c.6-2.4 1.6-3.5 2.5-3.5s1.9 1.1 2.5 3.5M8 13c.6-2.4 1.6-3.5 2.5-3.5s1.9 1.1 2.5 3.5',
   yoda: 'M8 3v4M4.5 4.5 8 7l3.5-2.5M5 13.5h6M8 7v6.5',
@@ -24,7 +14,7 @@ const PATHS: Record<string, string> = {
   settings: 'M8 5.8A2.2 2.2 0 1 0 8 10.2 2.2 2.2 0 0 0 8 5.8zM8 1.5v1.6M8 12.9v1.6M1.5 8h1.6M12.9 8h1.6M3.1 3.1l1.1 1.1M11.8 11.8l1.1 1.1M12.9 3.1 11.8 4.2M4.2 11.8l-1.1 1.1',
 };
 
-function Glyph({ d, size = 15 }: { d: string; size?: number }) {
+export function Glyph({ d, size = 15 }: { d: string; size?: number }) {
   return (
     <svg viewBox="0 0 16 16" width={size} height={size} fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d={d} />
@@ -32,79 +22,99 @@ function Glyph({ d, size = 15 }: { d: string; size?: number }) {
   );
 }
 
-interface Item { glyph: string; label: string; to: string; num?: string; match?: string }
+interface StackLink {
+  slug: string;
+  num: string;
+  label: string;
+  subs?: { glyph: string; label: string; to?: string }[];
+}
 
-const NAV: Item[] = [
-  { glyph: 'home', label: 'Home', to: '/', match: '/' },
-  { glyph: 'stacks', label: 'Stacks', to: '/stacks', match: '/stacks' },
-  { glyph: 'cycles', label: 'Cycles', to: '/soon/cycles' },
-  { glyph: 'workspace', label: 'Workspace', to: '/soon/workspace' },
-  { glyph: 'coach', label: 'AI Coach', to: '/soon/ai-coach' },
-  { glyph: 'library', label: 'Library', to: '/soon/library' },
+const STACK_LINKS: StackLink[] = [
+  { slug: 'commit', num: '01', label: 'Commit' },
+  {
+    slug: 'build-to-skill',
+    num: '02',
+    label: 'Build-to-Skill',
+    subs: [
+      { glyph: 'layers', label: 'Weekly Execution', to: '/stacks/weekly-execution' },
+      { glyph: 'zero', label: 'Ground Zero', to: '/stacks/ground-zero' },
+      { glyph: 'layers', label: 'Entry Microcosm' },
+      { glyph: 'layers', label: 'Value Macrocosm' },
+      { glyph: 'layers', label: 'Capture Economics' },
+      { glyph: 'layers', label: 'Efficient Scale' },
+      { glyph: 'layers', label: '100X ROI + Impact' },
+    ],
+  },
+  { slug: 'credential', num: '03', label: 'Credential' },
+  { slug: 'distribute', num: '04', label: 'Distribute' },
+  { slug: 'capitalize', num: '05', label: 'Capitalize' },
 ];
 
-const STACKS: Item[] = [
-  { num: '01', glyph: 'stacks', label: 'Commit', to: '/stacks#phase-entry' },
-  { num: '02', glyph: 'stacks', label: 'Build-to-Skill', to: '/stacks#phase-build' },
-  { num: '03', glyph: 'stacks', label: 'Credential', to: '/stacks#phase-credential' },
-  { num: '04', glyph: 'stacks', label: 'Distribute', to: '/stacks#phase-match' },
-  { num: '05', glyph: 'stacks', label: 'Capitalize', to: '/stacks#phase-onjob' },
-];
-
-const TOOLS: Item[] = [
+const TOOL_LINKS = [
   { glyph: 'powwow', label: 'Powwow!', to: '/soon/powwow' },
   { glyph: 'p2p', label: 'P2P Learning', to: '/soon/p2p-learning' },
   { glyph: 'yoda', label: 'Yodaman!', to: '/soon/yodaman' },
-  { glyph: 'becoming', label: 'Becoming', to: '/gps', match: '/gps' },
+  { glyph: 'becoming', label: 'Becoming', to: '/gps' },
 ];
 
-const CREDENTIAL: Item[] = [
-  { glyph: 'credential', label: 'My Credentials', to: '/soon/credentials' },
-  { glyph: 'eval', label: 'Evaluations', to: '/soon/evaluations' },
-  { glyph: 'scorecard', label: 'Scorecard', to: '/soon/scorecard' },
-];
+const itemCls = (active: boolean) =>
+  `flex items-center gap-2.5 rounded-[10px] px-2.5 py-[7px] text-[13px] transition-colors ${
+    active
+      ? 'bg-[hsl(var(--tint))] font-semibold text-[hsl(var(--ink))]'
+      : 'font-medium text-ink-55 hover:bg-[hsl(var(--tint)/0.55)] hover:text-[hsl(var(--ink))]'
+  }`;
 
-const DISTRIBUTE: Item[] = [
-  { glyph: 'network', label: 'Network', to: '/soon/network' },
-  { glyph: 'intro', label: 'Introductions', to: '/soon/introductions' },
-  { glyph: 'opportunity', label: 'Opportunities', to: '/soon/opportunities' },
-];
+function StackItem({ stack, pathname }: { stack: StackLink; pathname: string }) {
+  const navigate = useNavigate();
+  const base = `/stacks/${stack.slug}`;
+  const inSection = pathname.startsWith(base);
+  const [open, setOpen] = useState(inSection);
 
-const MONETIZE: Item[] = [
-  { glyph: 'value', label: 'Value Rooms', to: '/soon/value-rooms' },
-  { glyph: 'deals', label: 'Deals', to: '/soon/deals' },
-  { glyph: 'analytics', label: 'Analytics', to: '/soon/analytics' },
-];
-
-function NavItem({ item, active }: { item: Item; active: boolean }) {
   return (
-    <Link
-      to={item.to}
-      className={`flex items-center gap-2.5 rounded-[10px] px-2.5 py-[7px] text-[13px] transition-colors ${
-        active
-          ? 'bg-[hsl(var(--tint))] font-semibold text-[hsl(var(--ink))]'
-          : 'font-medium text-ink-55 hover:bg-[hsl(var(--tint)/0.55)] hover:text-[hsl(var(--ink))]'
-      }`}
-    >
-      {item.num ? (
-        <span className={`mono w-[15px] text-[10px] font-semibold ${active ? '' : 'text-ink-40'}`}>{item.num}</span>
-      ) : (
-        <Glyph d={PATHS[item.glyph]} />
-      )}
-      {item.label}
-    </Link>
-  );
-}
-
-function Section({ title, items, path }: { title: string; items: Item[]; path: string }) {
-  return (
-    <div className="mt-5">
-      <p className="px-2.5 text-[9.5px] font-bold uppercase tracking-[0.14em] text-ink-40">{title}</p>
-      <div className="mt-1.5 flex flex-col gap-0.5">
-        {items.map((i) => (
-          <NavItem key={i.label} item={i} active={!!i.match && path === i.match} />
-        ))}
+    <div>
+      <div className={`group ${itemCls(inSection)} cursor-pointer justify-between`} onClick={() => navigate(base)}>
+        <span className="flex items-center gap-2.5">
+          <span className={`mono w-[15px] text-[10px] font-semibold ${inSection ? '' : 'text-ink-40'}`}>{stack.num}</span>
+          {stack.label}
+        </span>
+        {stack.subs && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setOpen((o) => !o);
+            }}
+            aria-label={open ? 'Collapse' : 'Expand'}
+            className="flex h-5 w-5 items-center justify-center rounded-md text-ink-40 transition-colors hover:text-[hsl(var(--ink))]"
+          >
+            <svg
+              viewBox="0 0 10 10"
+              className={`h-2.5 w-2.5 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+              fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"
+            >
+              <path d="m2 3.5 3 3 3-3" />
+            </svg>
+          </button>
+        )}
       </div>
+
+      {stack.subs && open && (
+        <div className="mb-1 ml-[13px] flex flex-col gap-0.5 border-l border-[hsl(var(--ink)/0.08)] pl-3 pt-0.5">
+          {stack.subs.map((s) => {
+            const active = !!s.to && pathname === s.to;
+            return s.to ? (
+              <Link key={s.label} to={s.to} className={itemCls(active) + ' !py-[6px] text-[12.5px]'}>
+                <Glyph d={PATHS[s.glyph]} size={13} />
+                {s.label}
+              </Link>
+            ) : (
+              <span key={s.label} className="flex items-center gap-2.5 rounded-[10px] px-2.5 py-[6px] text-[12.5px] font-medium text-ink-40">
+                <Glyph d={PATHS[s.glyph]} size={13} />
+                {s.label}
+              </span>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
@@ -116,7 +126,7 @@ export default function Sidebar() {
   return (
     <aside className="hairline fixed inset-y-0 left-0 z-40 hidden w-[232px] flex-col border-r bg-white lg:flex">
       {/* brand */}
-      <div className="flex items-center gap-2.5 px-5 pb-3 pt-5">
+      <Link to="/" className="flex items-center gap-2.5 px-5 pb-3 pt-5">
         <span
           className="app-icon flex h-[30px] w-[30px] items-center justify-center"
           style={{ background: 'linear-gradient(160deg, #33322e 0%, #141412 100%)' }}
@@ -128,31 +138,43 @@ export default function Sidebar() {
         <span className="font-serif text-[19px] font-bold tracking-[-0.01em]">
           100X&nbsp;<span className="font-medium text-ink-55">OS</span>
         </span>
-      </div>
+      </Link>
       <p className="px-5 text-[9px] font-bold uppercase leading-relaxed tracking-[0.16em] text-ink-40">
         Operating System<br />for Meta Builders
       </p>
 
       <div className="hairline-t mx-5 mt-4" />
 
-      {/* scrollable nav */}
+      {/* nav */}
       <div className="flex-1 overflow-y-auto px-3 pb-4">
-        <div className="mt-4 px-2.5">
-          <p className="text-[9.5px] font-bold uppercase tracking-[0.14em] text-ink-40">Build with leverage</p>
-          <p className="mt-1 font-serif text-[12.5px] italic leading-snug text-ink-55">
-            We help you build systems that escape the J-Curve.
-          </p>
+        <div className="mt-4 flex flex-col gap-0.5">
+          <Link to="/" className={itemCls(pathname === '/')}>
+            <Glyph d={PATHS.home} />
+            Home
+          </Link>
         </div>
 
-        <Section title="Navigation" items={NAV} path={pathname} />
-        <Section title="Stacks" items={STACKS} path={pathname} />
-        <Section title="Tools" items={TOOLS} path={pathname} />
-        <Section title="Credential" items={CREDENTIAL} path={pathname} />
-        <Section title="Distribute" items={DISTRIBUTE} path={pathname} />
-        <Section title="Monetize" items={MONETIZE} path={pathname} />
+        {/* stacks group */}
+        <div className="mt-5">
+          <p className="px-2.5 text-[9.5px] font-bold uppercase tracking-[0.14em] text-ink-40">Stacks</p>
+          <div className="mt-1.5 flex flex-col gap-0.5">
+            {STACK_LINKS.map((s) => (
+              <StackItem key={s.slug} stack={s} pathname={pathname} />
+            ))}
+          </div>
+        </div>
 
-        <div className="mt-5 flex flex-col gap-0.5">
-          <NavItem item={{ glyph: 'settings', label: 'Settings', to: '/soon/settings' }} active={false} />
+        {/* tools group */}
+        <div className="mt-5">
+          <p className="px-2.5 text-[9.5px] font-bold uppercase tracking-[0.14em] text-ink-40">Tools</p>
+          <div className="mt-1.5 flex flex-col gap-0.5">
+            {TOOL_LINKS.map((t) => (
+              <Link key={t.label} to={t.to} className={itemCls(pathname === t.to)}>
+                <Glyph d={PATHS[t.glyph]} />
+                {t.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 
