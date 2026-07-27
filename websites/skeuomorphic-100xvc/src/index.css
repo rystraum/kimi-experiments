@@ -35,6 +35,9 @@
     --input: 45 6% 86%;
     --ring: var(--ink);
     --radius: 1.25rem;
+
+    /* voice-layer serif — switchable via the font lab */
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
   }
 }
 
