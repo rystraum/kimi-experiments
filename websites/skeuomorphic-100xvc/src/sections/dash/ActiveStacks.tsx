@@ -26,7 +26,7 @@ export default function ActiveStacks() {
         {ACTIVE_STACKS.map((s) => (
           <Link
             key={s.id}
-            to="/stacks"
+            to={s.id === 'venture' ? '/stacks/build-to-skill' : '/stacks'}
             className="group flex items-center gap-4 px-5 py-4 transition-colors first:rounded-t-[20px] last:rounded-b-[20px] hover:bg-[hsl(var(--tint)/0.4)] sm:px-6"
           >
             <span className="emboss-plate flex h-9 w-9 shrink-0 items-center justify-center rounded-[11px] text-ink-70">

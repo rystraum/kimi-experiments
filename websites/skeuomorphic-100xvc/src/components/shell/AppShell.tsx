@@ -1,14 +1,14 @@
 import type { ReactNode } from 'react';
 import Sidebar from './Sidebar';
-import TopBar from './TopBar';
+import Breadcrumb, { type Crumb } from './Breadcrumb';
 
-/** The peg shell — white sidebar, frosted top bar, paper canvas. */
-export default function AppShell({ children }: { children: ReactNode }) {
+/** The peg shell — white sidebar, breadcrumb wayfinding, paper canvas. */
+export default function AppShell({ children, crumbs }: { children: ReactNode; crumbs?: Crumb[] }) {
   return (
     <div className="min-h-screen">
       <Sidebar />
       <div className="lg:pl-[232px]">
-        <TopBar />
+        {crumbs && crumbs.length > 0 && <Breadcrumb crumbs={crumbs} />}
         {children}
       </div>
     </div>
