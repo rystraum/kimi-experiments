@@ -26,7 +26,7 @@ export default function StackSection(p: Props) {
         </h2>
         <p className="mt-3 font-serif text-[16px] leading-relaxed text-ink-55">
           Every card starts white. Ship the work, flip it to black — the phase meter fills,
-          the constellation lights, and the credential compounds. This homepage is the interface:
+          the constellation lights, and the credential compounds. This page is the interface:
           try it below.
         </p>
       </div>
