@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router';
-import AppSidebar from '../components/AppSidebar';
+import AppShell from '../components/shell/AppShell';
 
 /* ———————————————— content model ———————————————— */
 
@@ -239,15 +238,8 @@ export default function Gps() {
   }, [tab]);
 
   return (
-    <div className="min-h-screen">
-      <AppSidebar />
-
-      <main className="mx-auto max-w-[1160px] px-5 pb-24 pt-10 sm:px-8 md:pl-[260px] md:pr-8">
-        {/* mobile home link (sidebar hidden) */}
-        <Link to="/" className="mb-6 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[hsl(var(--ink))] md:hidden">
-          ← 100X OS Home
-        </Link>
-
+    <AppShell>
+      <main className="mx-auto max-w-[1160px] px-5 pb-24 pt-8 sm:px-8">
         {/* header */}
         <div className="flex flex-wrap items-start justify-between gap-5">
           <div className="max-w-[620px]">
@@ -471,6 +463,6 @@ export default function Gps() {
           </div>
         )}
       </main>
-    </div>
+    </AppShell>
   );
 }
