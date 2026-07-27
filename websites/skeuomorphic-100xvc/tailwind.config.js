@@ -5,7 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['Newsreader', 'Georgia', '"Times New Roman"', 'serif'],
+        /* the serif voice layer is a live token — the font lab rewrites --serif at runtime */
+        serif: 'var(--serif)',
       },
       colors: {
         border: "hsl(var(--border))",
