@@ -27,7 +27,7 @@ export default function Focus() {
           <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-ink-40">This week's focus</p>
           <p className="mono text-[10.5px] font-medium text-ink-40">{FOCUS.week}</p>
         </div>
-        <h2 className="mt-4 font-serif text-[26px] font-semibold leading-tight tracking-[-0.005em]">
+        <h2 className="mt-4 font-display text-[26px] font-semibold leading-tight tracking-[-0.005em]">
           {FOCUS.title}
         </h2>
         <p className="mt-1.5 font-serif text-[14.5px] italic text-ink-55">{FOCUS.caption}</p>

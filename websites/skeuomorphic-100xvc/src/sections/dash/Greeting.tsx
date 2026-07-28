@@ -8,7 +8,7 @@ export default function Greeting() {
       <VectorCanvas className="absolute inset-0 h-full w-full opacity-60" />
       <div className="relative px-5 pb-8 pt-7 sm:px-8">
         <p className="font-serif text-[15px] italic text-ink-55">Good morning, {USER.first}.</p>
-        <h1 className="mt-3 max-w-[720px] font-serif text-[40px] font-medium leading-[1.08] tracking-[-0.01em] sm:text-[52px]">
+        <h1 className="mt-3 max-w-[720px] font-display text-[40px] font-medium leading-[1.08] tracking-[-0.01em] sm:text-[52px]">
           <span className="italic">Design systems.</span>
           <br />
           Build leverage. Create escape velocity.

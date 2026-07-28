@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="relative mx-auto max-w-[1200px] px-5 pb-16 pt-16 text-center sm:px-8 sm:pb-20 sm:pt-24">
         <p className="eyebrow">The Operating System for Meta Builders</p>
 
-        <h1 className="mx-auto mt-5 font-serif text-[68px] font-bold leading-[0.95] tracking-[-0.015em] sm:text-[110px]">
+        <h1 className="mx-auto mt-5 font-display text-[68px] font-bold leading-[0.95] tracking-[-0.015em] sm:text-[110px]">
           100X&nbsp;<span className="font-medium text-ink-55">OS</span>
         </h1>
 
@@ -68,7 +68,7 @@ export default function Hero() {
         <div className="mx-auto mt-14 grid max-w-[880px] grid-cols-2 gap-3 sm:grid-cols-4">
           {STATS.map(([v, l]) => (
             <div key={l} className="deboss rounded-[18px] px-4 py-4 text-left">
-              <div className="tnum font-serif text-[23px] font-semibold tracking-[-0.01em] text-[hsl(var(--ink))]">
+              <div className="tnum font-display text-[23px] font-semibold tracking-[-0.01em] text-[hsl(var(--ink))]">
                 {v}
               </div>
               <div className="mt-1 text-[11px] leading-snug text-ink-55">{l}</div>

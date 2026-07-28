@@ -36,7 +36,7 @@ export default function ActiveStacks() {
             </span>
 
             <span className="min-w-0 flex-1">
-              <span className="block truncate font-serif text-[16px] font-semibold tracking-[0]">{s.name}</span>
+              <span className="block truncate font-display text-[16px] font-semibold tracking-[0]">{s.name}</span>
               <span className="block truncate text-[12px] text-ink-55">{s.caption}</span>
             </span>
 

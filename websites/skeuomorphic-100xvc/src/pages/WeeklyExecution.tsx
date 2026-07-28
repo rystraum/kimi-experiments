@@ -198,7 +198,7 @@ export default function WeeklyExecution() {
         {/* header */}
         <div className="flex flex-wrap items-start justify-between gap-5">
           <div>
-            <h1 className="font-serif text-[40px] font-bold uppercase leading-none tracking-[-0.01em] sm:text-[50px]">
+            <h1 className="font-display text-[40px] font-bold uppercase leading-none tracking-[-0.01em] sm:text-[50px]">
               Weekly Execution
             </h1>
             <p className="mt-3 max-w-[640px] font-serif text-[14.5px] leading-relaxed text-ink-55">
