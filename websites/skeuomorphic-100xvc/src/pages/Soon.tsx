@@ -31,7 +31,7 @@ export default function Soon() {
     <AppShell>
       <div className="flex min-h-[70vh] items-center justify-center px-5">
         <div className="deboss w-full max-w-[480px] rounded-[20px] px-8 py-12 text-center">
-          <p className="font-serif text-[26px] font-semibold">{title} is still sealed.</p>
+          <p className="font-display text-[26px] font-semibold">{title} is still sealed.</p>
           <p className="mt-2.5 font-serif text-[14.5px] italic leading-relaxed text-ink-55">
             The room unlocks as your stack flips to black. Keep shipping signals.
           </p>

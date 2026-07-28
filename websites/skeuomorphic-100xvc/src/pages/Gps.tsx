@@ -243,7 +243,7 @@ export default function Gps() {
         {/* header */}
         <div className="flex flex-wrap items-start justify-between gap-5">
           <div className="max-w-[620px]">
-            <h1 className="font-serif text-[48px] font-bold leading-none tracking-[-0.01em] sm:text-[60px]">GPS</h1>
+            <h1 className="font-display text-[48px] font-bold leading-none tracking-[-0.01em] sm:text-[60px]">GPS</h1>
             <p className="mt-3 font-serif text-[15px] leading-relaxed text-ink-55">
               Complete this Stack to activate one of the world&rsquo;s most powerful GPS systems —
               to set direction, navigation, clarity, depth, velocity, grit and staying power for
@@ -286,7 +286,7 @@ export default function Gps() {
 
         {tab !== 'Meta' ? (
           <div className="deboss mt-8 rounded-[18px] px-6 py-10 text-center">
-            <p className="font-serif text-[17px] font-semibold">This view is still sealed.</p>
+            <p className="font-display text-[17px] font-semibold">This view is still sealed.</p>
             <p className="mt-1.5 font-serif text-[14px] text-ink-55">
               Complete the GPS Meta stack — your {tab} signals unlock as cards flip to black.
             </p>

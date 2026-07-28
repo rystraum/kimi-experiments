@@ -14,7 +14,7 @@ export default function GroundZero() {
   return (
     <AppShell crumbs={[{ label: 'Home', to: '/' }, { label: '02 Build-to-Skill', to: '/stacks/build-to-skill' }, { label: 'Ground Zero' }]}>
       <main className="mx-auto max-w-[1080px] px-5 pb-24 pt-7 sm:px-8">
-        <h1 className="font-serif text-[42px] font-bold uppercase leading-none tracking-[-0.01em] sm:text-[52px]">
+        <h1 className="font-display text-[42px] font-bold uppercase leading-none tracking-[-0.01em] sm:text-[52px]">
           Ground Zero
         </h1>
         <p className="mt-4 max-w-[760px] font-serif text-[15px] leading-relaxed text-ink-70">

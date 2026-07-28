@@ -21,7 +21,7 @@ export default function StackPage() {
       <AppShell crumbs={[{ label: 'Home', to: '/' }, { label: 'Stacks' }]}>
         <div className="flex min-h-[60vh] items-center justify-center px-5">
           <div className="deboss w-full max-w-[480px] rounded-[20px] px-8 py-12 text-center">
-            <p className="font-serif text-[26px] font-semibold">This stack is still sealed.</p>
+            <p className="font-display text-[26px] font-semibold">This stack is still sealed.</p>
             <p className="mt-2.5 font-serif text-[14.5px] italic leading-relaxed text-ink-55">
               It unlocks as the stacks before it flip to black.
             </p>
@@ -37,7 +37,7 @@ export default function StackPage() {
   return (
     <AppShell crumbs={[{ label: 'Home', to: '/' }, { label: `${stack.num} ${stack.name}` }]}>
       <main className="mx-auto max-w-[1240px] px-5 pb-24 pt-7 sm:px-8">
-        <h1 className="font-serif text-[42px] font-bold leading-none tracking-[-0.01em] sm:text-[52px]">
+        <h1 className="font-display text-[42px] font-bold leading-none tracking-[-0.01em] sm:text-[52px]">
           {stack.num} {stack.name}
         </h1>
         {stack.blurb && (
