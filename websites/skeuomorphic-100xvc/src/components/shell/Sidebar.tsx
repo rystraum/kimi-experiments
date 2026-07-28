@@ -51,7 +51,7 @@ const STACK_LINKS: StackLink[] = [
 ];
 
 const TOOL_LINKS = [
-  { glyph: 'powwow', label: 'Powwow!', to: '/soon/powwow' },
+  { glyph: 'powwow', label: 'Powwow!', to: '/powwow' },
   { glyph: 'p2p', label: 'P2P Learning', to: '/soon/p2p-learning' },
   { glyph: 'yoda', label: 'Yodaman!', to: '/soon/yodaman' },
   { glyph: 'becoming', label: 'Becoming', to: '/gps' },
