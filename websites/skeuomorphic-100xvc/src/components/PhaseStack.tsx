@@ -65,7 +65,7 @@ const PhaseCard = forwardRef<HTMLDivElement, Props>(function PhaseCard(
           </span>
 
           <span className="min-w-0 flex-1">
-            <span className="block truncate font-serif text-[18px] font-semibold tracking-[-0.005em] sm:text-[19.5px]">
+            <span className="block truncate font-display text-[18px] font-semibold tracking-[-0.005em] sm:text-[19.5px]">
               {phase.name}
             </span>
             <span className="mt-0.5 block truncate font-serif text-[13.5px] text-ink-55">{phase.caption}</span>
@@ -126,7 +126,7 @@ const PhaseCard = forwardRef<HTMLDivElement, Props>(function PhaseCard(
                         <span className="emboss-plate mono rounded-md px-1.5 py-0.5 text-[10.5px] font-semibold text-ink-70">
                           {g.code}
                         </span>
-                        <h3 className="font-serif text-[15px] font-semibold tracking-[0]">{g.name}</h3>
+                        <h3 className="font-display text-[15px] font-semibold tracking-[0]">{g.name}</h3>
                         {g.note && <span className="text-[11.5px] text-ink-40">{g.note}</span>}
                       </div>
                     )}

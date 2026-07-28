@@ -135,7 +135,7 @@ export default function Sidebar() {
             <path d="m9 9 14 14M23 9 9 23" stroke="#fff" strokeWidth="3.4" strokeLinecap="round" />
           </svg>
         </span>
-        <span className="font-serif text-[19px] font-bold tracking-[-0.01em]">
+        <span className="font-display text-[19px] font-bold tracking-[-0.01em]">
           100X&nbsp;<span className="font-medium text-ink-55">OS</span>
         </span>
       </Link>

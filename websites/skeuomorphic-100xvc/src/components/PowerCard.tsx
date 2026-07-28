@@ -55,7 +55,7 @@ export default function PowerCard({ card, flipped, onFlip }: Props) {
 
           <div className="mt-3 flex-1">
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-              <h4 className="font-serif text-[16px] font-semibold leading-snug tracking-[0]">
+              <h4 className="font-display text-[16px] font-semibold leading-snug tracking-[0]">
                 {card.name}
               </h4>
               {card.tag && (
@@ -97,7 +97,7 @@ export default function PowerCard({ card, flipped, onFlip }: Props) {
             </span>
           </div>
           <div className="mt-3 flex-1">
-            <h4 className="font-serif text-[16px] font-semibold leading-snug tracking-[0] text-white/95">
+            <h4 className="font-display text-[16px] font-semibold leading-snug tracking-[0] text-white/95">
               {card.name}
             </h4>
             <p className="mt-1.5 font-serif text-[13.5px] italic leading-relaxed text-white/55">
