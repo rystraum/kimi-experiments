@@ -36,8 +36,9 @@
     --ring: var(--ink);
     --radius: 1.25rem;
 
-    /* voice-layer serif — switchable via the font lab */
-    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    /* voice layer — two switchable voices: titles & body (the font lab rewrites both) */
+    --serif-display: "Newsreader", Georgia, "Times New Roman", serif;
+    --serif-body: "Newsreader", Georgia, "Times New Roman", serif;
   }
 }
 
@@ -70,8 +71,9 @@
   ::selection {
     background: hsl(var(--ink) / 0.14);
   }
-  /* serif voice layer — Newsreader carries headings & prose with optical sizing */
-  .font-serif {
+  /* voice layer — optical sizing on both title & body voices */
+  .font-serif,
+  .font-display {
     font-optical-sizing: auto;
     font-feature-settings: "kern", "liga";
   }

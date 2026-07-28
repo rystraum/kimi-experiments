@@ -5,8 +5,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        /* the serif voice layer is a live token — the font lab rewrites --serif at runtime */
-        serif: 'var(--serif)',
+        /* the voice layer is two live tokens — the font lab rewrites them at runtime:
+           display = titles & headings, serif = body prose */
+        display: 'var(--serif-display)',
+        serif: 'var(--serif-body)',
       },
       colors: {
         border: "hsl(var(--border))",
