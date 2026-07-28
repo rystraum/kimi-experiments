@@ -5,6 +5,7 @@ import StackPage from './pages/StackPage'
 import GroundZero from './pages/GroundZero'
 import WeeklyExecution from './pages/WeeklyExecution'
 import Gps from './pages/Gps'
+import Powwow from './pages/Powwow'
 import Soon from './pages/Soon'
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
       <Route path="/stacks/weekly-execution" element={<WeeklyExecution />} />
       <Route path="/stacks/:slug" element={<StackPage />} />
       <Route path="/gps" element={<Gps />} />
+      <Route path="/powwow" element={<Powwow />} />
       <Route path="/soon/:slug" element={<Soon />} />
     </Routes>
   )
